@@ -185,20 +185,20 @@ const ProtectedRoute = ({ children }) => {
 // 2. Layout Wrapper: Login/Register ma Header/Footer hide karva mate
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   // Auth pages par Header/Footer chhupavva mate
   const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
 
-  useEffect(() => {
-    setLoading(true);
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, [location]);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1500);
+  //   return () => clearTimeout(timer);
+  // }, [location]);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
 
   return (
     <div className="app-container">
@@ -213,13 +213,23 @@ const LayoutWrapper = ({ children }) => {
 };
 
 function App() {
+  const [initialLoading, setInitialLoading] = useState(false);
+
+  const handleLoginSuccess = () => {
+    setInitialLoading(true);
+    setTimeout(() => {
+      setInitialLoading(false);
+    }, 1500);
+  };
+
+  if (initialLoading) return <Loader />;
   return (
     <ProductProvider>
       <Router>
         <LayoutWrapper>
           <Routes>
             {/* Public Routes */}
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login onLogin={handleLoginSuccess} />} />
             <Route path="/register" element={<Register />} />
 
             {/* Protected Routes (Login jaruri che) */}

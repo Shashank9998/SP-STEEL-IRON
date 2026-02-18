@@ -1,66 +1,66 @@
-import React, { useState } from 'react';
-import { Box, TextField, Button, Typography, Paper, InputAdornment } from '@mui/material';
-import { motion } from 'framer-motion';
-import { useNavigate, Link } from 'react-router-dom';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import '../styles/Auth.css';
+// import React, { useState } from 'react';
+// import { Box, TextField, Button, Typography, Paper, InputAdornment } from '@mui/material';
+// import { motion } from 'framer-motion';
+// import { useNavigate, Link } from 'react-router-dom';
+// import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+// import MailOutlineIcon from '@mui/icons-material/MailOutline';
+// import LockOpenIcon from '@mui/icons-material/LockOpen';
+// import '../styles/Auth.css';
 
-const Register = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
-  const navigate = useNavigate();
+// const Register = () => {
+//   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+//   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    localStorage.setItem('user', JSON.stringify(formData));
-    alert("Account created successfully!");
-    navigate('/login');
-  };
+//   const handleRegister = (e) => {
+//     e.preventDefault();
+//     localStorage.setItem('user', JSON.stringify(formData));
+//     alert("Account created successfully!");
+//     navigate('/login');
+//   };
 
-  return (
-    <div className="auth-page">
-      <motion.div 
-        initial={{ x: 100, opacity: 0 }} 
-        animate={{ x: 0, opacity: 1 }} 
-        transition={{ type: 'spring', stiffness: 120 }}
-      >
-        <Paper className="glass-card">
-          <Typography variant="h4" fontWeight="800" align="left" gutterBottom>
-            Register <span style={{ color: '#64b5f6' }}>Now.</span>
-          </Typography>
-          <Typography variant="body2" sx={{ opacity: 0.7, mb: 3 }}>
-            Join the strongest network in the industry.
-          </Typography>
+//   return (
+//     <div className="auth-page">
+//       <motion.div 
+//         initial={{ x: 100, opacity: 0 }} 
+//         animate={{ x: 0, opacity: 1 }} 
+//         transition={{ type: 'spring', stiffness: 120 }}
+//       >
+//         <Paper className="glass-card">
+//           <Typography variant="h4" fontWeight="800" align="left" gutterBottom>
+//             Register <span style={{ color: '#64b5f6' }}>Now.</span>
+//           </Typography>
+//           <Typography variant="body2" sx={{ opacity: 0.7, mb: 3 }}>
+//             Join the strongest network in the industry.
+//           </Typography>
           
-          <form onSubmit={handleRegister}>
-            <TextField fullWidth label="Full Name" margin="normal" required
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-              InputProps={{ startAdornment: <InputAdornment position="start"><PersonOutlineIcon sx={{color: '#fff'}} /></InputAdornment> }}
-            />
-            <TextField fullWidth label="Email" margin="normal" type="email" required
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-              InputProps={{ startAdornment: <InputAdornment position="start"><MailOutlineIcon sx={{color: '#fff'}} /></InputAdornment> }}
-            />
-            <TextField fullWidth label="Password" margin="normal" type="password" required
-              onChange={(e) => setFormData({...formData, password: e.target.value})}
-              InputProps={{ startAdornment: <InputAdornment position="start"><LockOpenIcon sx={{color: '#fff'}} /></InputAdornment> }}
-            />
-            <Button className="premium-btn" fullWidth variant="contained" type="submit" sx={{ mt: 3 }}>
-              Create Account
-            </Button>
-          </form>
+//           <form onSubmit={handleRegister}>
+//             <TextField fullWidth label="Full Name" margin="normal" required
+//               onChange={(e) => setFormData({...formData, name: e.target.value})}
+//               InputProps={{ startAdornment: <InputAdornment position="start"><PersonOutlineIcon sx={{color: '#fff'}} /></InputAdornment> }}
+//             />
+//             <TextField fullWidth label="Email" margin="normal" type="email" required
+//               onChange={(e) => setFormData({...formData, email: e.target.value})}
+//               InputProps={{ startAdornment: <InputAdornment position="start"><MailOutlineIcon sx={{color: '#fff'}} /></InputAdornment> }}
+//             />
+//             <TextField fullWidth label="Password" margin="normal" type="password" required
+//               onChange={(e) => setFormData({...formData, password: e.target.value})}
+//               InputProps={{ startAdornment: <InputAdornment position="start"><LockOpenIcon sx={{color: '#fff'}} /></InputAdornment> }}
+//             />
+//             <Button className="premium-btn" fullWidth variant="contained" type="submit" sx={{ mt: 3 }}>
+//               Create Account
+//             </Button>
+//           </form>
           
-          <Typography align="center" mt={3} variant="body2">
-            Already a member? <Link to="/login" className="auth-link">Login</Link>
-          </Typography>
-        </Paper>
-      </motion.div>
-    </div>
-  );
-};
+//           <Typography align="center" mt={3} variant="body2">
+//             Already a member? <Link to="/login" className="auth-link">Login</Link>
+//           </Typography>
+//         </Paper>
+//       </motion.div>
+//     </div>
+//   );
+// };
 
-export default Register;
+// export default Register;
 
 
 
@@ -224,3 +224,169 @@ export default Register;
 // };
 
 // export default Register;
+
+
+
+// import React, { useState } from 'react';
+// import { Box, TextField, Button, Typography, Paper, InputAdornment } from '@mui/material';
+// import { motion } from 'framer-motion';
+// import { useNavigate, Link } from 'react-router-dom';
+// import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+// import MailOutlineIcon from '@mui/icons-material/MailOutline';
+// import LockOpenIcon from '@mui/icons-material/LockOpen';
+// import { toast } from 'react-toastify'; // 1. toast ઈમ્પોર્ટ કરો
+// import '../styles/Auth.css';
+
+// const Register = () => {
+//   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+//   const navigate = useNavigate();
+
+//   const handleRegister = (e) => {
+//     e.preventDefault();
+    
+//     // લોકલ સ્ટોરેજમાં ડેટા સેવ કરો
+//     localStorage.setItem('user', JSON.stringify(formData));
+    
+//     // 2. Alert ની જગ્યાએ Toastify વાપરો
+//     toast.success("Account created successfully! Please login.");
+    
+//     // લોગિન પેજ પર મોકલો
+//     navigate('/login');
+//   };
+
+//   return (
+//     <div className="auth-page">
+//       <motion.div 
+//         initial={{ x: 100, opacity: 0 }} 
+//         animate={{ x: 0, opacity: 1 }} 
+//         transition={{ type: 'spring', stiffness: 120 }}
+//       >
+//         <Paper className="glass-card">
+//           <Typography variant="h4" fontWeight="800" align="left" gutterBottom>
+//             Register <span style={{ color: '#64b5f6' }}>Now.</span>
+//           </Typography>
+//           <Typography variant="body2" sx={{ opacity: 0.7, mb: 3 }}>
+//             Join the strongest network in the industry.
+//           </Typography>
+          
+//           <form onSubmit={handleRegister}>
+//             <TextField fullWidth label="Full Name" margin="normal" required
+//               onChange={(e) => setFormData({...formData, name: e.target.value})}
+//               InputProps={{ startAdornment: <InputAdornment position="start"><PersonOutlineIcon sx={{color: '#fff'}} /></InputAdornment> }}
+//             />
+//             <TextField fullWidth label="Email" margin="normal" type="email" required
+//               onChange={(e) => setFormData({...formData, email: e.target.value})}
+//               InputProps={{ startAdornment: <InputAdornment position="start"><MailOutlineIcon sx={{color: '#fff'}} /></InputAdornment> }}
+//             />
+//             <TextField fullWidth label="Password" margin="normal" type="password" required
+//               onChange={(e) => setFormData({...formData, password: e.target.value})}
+//               InputProps={{ startAdornment: <InputAdornment position="start"><LockOpenIcon sx={{color: '#fff'}} /></InputAdornment> }}
+//             />
+//             <Button className="premium-btn" fullWidth variant="contained" type="submit" sx={{ mt: 3 }}>
+//               Create Account
+//             </Button>
+//           </form>
+          
+//           <Typography align="center" mt={3} variant="body2">
+//             Already a member? <Link to="/login" className="auth-link">Login</Link>
+//           </Typography>
+//         </Paper>
+//       </motion.div>
+//     </div>
+//   );
+// };
+
+// export default Register;
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+import { Box, TextField, Button, Typography, Paper, InputAdornment } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useNavigate, Link } from 'react-router-dom';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import { toast } from 'react-toastify'; 
+import '../styles/Auth.css';
+
+const Register = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const navigate = useNavigate();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    // 1. પહેલાથી રહેલા યુઝર્સ મેળવો (જો ન હોય તો ખાલી એરે [] લો)
+    const existingUsers = JSON.parse(localStorage.getItem('allUsers')) || [];
+
+    // 2. ચેક કરો કે આ ઈમેઈલ પહેલેથી રજીસ્ટર તો નથી ને?
+    const userExists = existingUsers.find(user => user.email === formData.email);
+
+    if (userExists) {
+      toast.error("This email is already registered!");
+      return;
+    }
+
+    // 3. નવા યુઝરને લિસ્ટમાં ઉમેરો
+    const updatedUsers = [...existingUsers, formData];
+
+    // 4. લોકલ સ્ટોરેજમાં અપડેટ કરેલું લિસ્ટ અને કરંટ યુઝર સેવ કરો
+    localStorage.setItem('allUsers', JSON.stringify(updatedUsers)); // બધા યુઝર્સ માટે
+    localStorage.setItem('user', JSON.stringify(formData)); // છેલ્લા રજીસ્ટર થયેલા યુઝર માટે (તમારા જૂના લોજિક મુજબ)
+
+    toast.success("Account created successfully! Please login.");
+    navigate('/login');
+  };
+
+  return (
+    <div className="auth-page">
+      <motion.div 
+        initial={{ x: 100, opacity: 0 }} 
+        animate={{ x: 0, opacity: 1 }} 
+        transition={{ type: 'spring', stiffness: 120 }}
+      >
+        <Paper className="glass-card">
+          <Typography variant="h4" fontWeight="800" align="left" gutterBottom>
+            Register <span style={{ color: '#64b5f6' }}>Now.</span>
+          </Typography>
+          <Typography variant="body2" sx={{ opacity: 0.7, mb: 3 }}>
+            Join the strongest network in the industry.
+          </Typography>
+          
+          <form onSubmit={handleRegister}>
+            <TextField fullWidth label="Full Name" margin="normal" required
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              InputProps={{ startAdornment: <InputAdornment position="start"><PersonOutlineIcon sx={{color: '#fff'}} /></InputAdornment> }}
+            />
+            <TextField fullWidth label="Email" margin="normal" type="email" required
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              InputProps={{ startAdornment: <InputAdornment position="start"><MailOutlineIcon sx={{color: '#fff'}} /></InputAdornment> }}
+            />
+            <TextField fullWidth label="Password" margin="normal" type="password" required
+              onChange={(e) => setFormData({...formData, password: e.target.value})}
+              InputProps={{ startAdornment: <InputAdornment position="start"><LockOpenIcon sx={{color: '#fff'}} /></InputAdornment> }}
+            />
+            <Button className="premium-btn" fullWidth variant="contained" type="submit" sx={{ mt: 3 }}>
+              Create Account
+            </Button>
+          </form>
+          
+          <Typography align="center" mt={3} variant="body2">
+            Already a member? <Link to="/login" className="auth-link">Login</Link>
+          </Typography>
+        </Paper>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Register;

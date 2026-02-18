@@ -1,73 +1,73 @@
-import React, { useState } from 'react';
-import { Box, TextField, Button, Typography, Paper, InputAdornment } from '@mui/material';
-import { motion } from 'framer-motion';
-import { useNavigate, Link } from 'react-router-dom';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import '../styles/Auth.css'; // CSS Import
+// import React, { useState } from 'react';
+// import { Box, TextField, Button, Typography, Paper, InputAdornment } from '@mui/material';
+// import { motion } from 'framer-motion';
+// import { useNavigate, Link } from 'react-router-dom';
+// import MailOutlineIcon from '@mui/icons-material/MailOutline';
+// import LockOpenIcon from '@mui/icons-material/LockOpen';
+// import '../styles/Auth.css'; // CSS Import
 
-const Login = () => {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
-  const navigate = useNavigate();
+// const Login = () => {
+//   const [credentials, setCredentials] = useState({ email: '', password: '' });
+//   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+//   const handleLogin = (e) => {
+//     e.preventDefault();
+//     const storedUser = JSON.parse(localStorage.getItem('user'));
 
-    if (storedUser && storedUser.email === credentials.email && storedUser.password === credentials.password) {
-      localStorage.setItem('isLoggedIn', 'true');
-      navigate('/');
-    } else {
-      alert("Invalid Email or Password!");
-    }
-  };
+//     if (storedUser && storedUser.email === credentials.email && storedUser.password === credentials.password) {
+//       localStorage.setItem('isLoggedIn', 'true');
+//       navigate('/');
+//     } else {
+//       alert("Invalid Email or Password!");
+//     }
+//   };
 
-  return (
-    <div className="auth-page">
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }} 
-        animate={{ opacity: 1, scale: 1 }} 
-        transition={{ duration: 0.5 }}
-      >
-        <Paper className="glass-card">
-          <Typography variant="h4" fontWeight="800" align="left" gutterBottom>
-            Welcome <span style={{ color: '#64b5f6' }}>Back.</span>
-          </Typography>
-          <Typography variant="body2" sx={{ opacity: 0.7, mb: 4 }}>
-            Login to your SP Iron & Steel account.
-          </Typography>
+//   return (
+//     <div className="auth-page">
+//       <motion.div 
+//         initial={{ opacity: 0, scale: 0.8 }} 
+//         animate={{ opacity: 1, scale: 1 }} 
+//         transition={{ duration: 0.5 }}
+//       >
+//         <Paper className="glass-card">
+//           <Typography variant="h4" fontWeight="800" align="left" gutterBottom>
+//             Welcome <span style={{ color: '#64b5f6' }}>Back.</span>
+//           </Typography>
+//           <Typography variant="body2" sx={{ opacity: 0.7, mb: 4 }}>
+//             Login to your SP Iron & Steel account.
+//           </Typography>
           
-          <form onSubmit={handleLogin}>
-            <TextField 
-              fullWidth label="Email Address" margin="normal" required
-              onChange={(e) => setCredentials({...credentials, email: e.target.value})}
-              InputProps={{
-                startAdornment: <InputAdornment position="start"><MailOutlineIcon sx={{color: '#fff'}} /></InputAdornment>,
-              }}
-            />
-            <TextField 
-              fullWidth label="Password" type="password" margin="normal" required
-              onChange={(e) => setCredentials({...credentials, password: e.target.value})}
-              InputProps={{
-                startAdornment: <InputAdornment position="start"><LockOpenIcon sx={{color: '#fff'}} /></InputAdornment>,
-              }}
-            />
+//           <form onSubmit={handleLogin}>
+//             <TextField 
+//               fullWidth label="Email Address" margin="normal" required
+//               onChange={(e) => setCredentials({...credentials, email: e.target.value})}
+//               InputProps={{
+//                 startAdornment: <InputAdornment position="start"><MailOutlineIcon sx={{color: '#fff'}} /></InputAdornment>,
+//               }}
+//             />
+//             <TextField 
+//               fullWidth label="Password" type="password" margin="normal" required
+//               onChange={(e) => setCredentials({...credentials, password: e.target.value})}
+//               InputProps={{
+//                 startAdornment: <InputAdornment position="start"><LockOpenIcon sx={{color: '#fff'}} /></InputAdornment>,
+//               }}
+//             />
             
-            <Button className="premium-btn" fullWidth variant="contained" type="submit" sx={{ mt: 4 }}>
-              Sign In
-            </Button>
-          </form>
+//             <Button className="premium-btn" fullWidth variant="contained" type="submit" sx={{ mt: 4 }}>
+//               Sign In
+//             </Button>
+//           </form>
 
-          <Typography align="center" mt={4} variant="body2">
-            New here? <Link to="/register" className="auth-link">Create Account</Link>
-          </Typography>
-        </Paper>
-      </motion.div>
-    </div>
-  );
-};
+//           <Typography align="center" mt={4} variant="body2">
+//             New here? <Link to="/register" className="auth-link">Create Account</Link>
+//           </Typography>
+//         </Paper>
+//       </motion.div>
+//     </div>
+//   );
+// };
 
-export default Login;
+// export default Login;
 
 // import React, { useState } from 'react';
 // import { 
@@ -223,3 +223,87 @@ export default Login;
 // };
 
 // export default Login;
+
+
+
+
+
+
+import React, { useState } from 'react';
+import { TextField, Button, Typography, Paper, InputAdornment } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useNavigate, Link } from 'react-router-dom';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import { toast } from 'react-toastify'; 
+import '../styles/Auth.css'; 
+
+const Login = ({ onLogin }) => {
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+
+    if (storedUser && storedUser.email === credentials.email && storedUser.password === credentials.password) {
+      localStorage.setItem('isLoggedIn', 'true');
+
+      toast.success("Login Successful! Welcome back.");
+
+      if (onLogin) {
+        onLogin();
+      }
+
+      navigate('/');
+    } else {
+      toast.error("Invalid Email or Password!");
+    }
+  };
+
+  return (
+    <div className="auth-page">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }} 
+        animate={{ opacity: 1, scale: 1 }} 
+        transition={{ duration: 0.5 }}
+      >
+        <Paper className="glass-card">
+          <Typography variant="h4" fontWeight="800" align="left" gutterBottom>
+            Welcome <span style={{ color: '#64b5f6' }}>Back.</span>
+          </Typography>
+          <Typography variant="body2" sx={{ opacity: 0.7, mb: 4 }}>
+            Login to your SP Iron & Steel account.
+          </Typography>
+          
+          <form onSubmit={handleLogin}>
+            <TextField 
+              fullWidth label="Email Address" margin="normal" required
+              onChange={(e) => setCredentials({...credentials, email: e.target.value})}
+              InputProps={{
+                startAdornment: <InputAdornment position="start"><MailOutlineIcon sx={{color: '#fff'}} /></InputAdornment>,
+              }}
+            />
+            <TextField 
+              fullWidth label="Password" type="password" margin="normal" required
+              onChange={(e) => setCredentials({...credentials, password: e.target.value})}
+              InputProps={{
+                startAdornment: <InputAdornment position="start"><LockOpenIcon sx={{color: '#fff'}} /></InputAdornment>,
+              }}
+            />
+            
+            <Button className="premium-btn" fullWidth variant="contained" type="submit" sx={{ mt: 4 }}>
+              Sign In
+            </Button>
+          </form>
+
+          <Typography align="center" mt={4} variant="body2">
+            New here? <Link to="/register" className="auth-link">Create Account</Link>
+          </Typography>
+        </Paper>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Login;
