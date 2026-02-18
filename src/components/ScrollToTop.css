@@ -1,0 +1,100 @@
+/* .scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.scroll-btn {
+  background-color: #ffcc00 !important; 
+  color: #000 !important;
+  transition: all 0.3s ease-in-out !important;
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4) !important;
+}
+
+.scroll-btn:hover {
+  background-color: #000 !important;
+  color: #ffcc00 !important;
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+@media (max-width: 600px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+  }
+} */
+
+
+
+
+.unique-scroll-container {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  transform: translateY(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-scroll-container.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.progress-svg {
+  position: absolute;
+  transform: rotate(-90deg); 
+}
+
+.progress-circle-bg {
+  fill: rgba(0, 0, 0, 0.7); 
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 3;
+}
+
+.progress-circle-bar {
+  fill: none;
+  stroke: #ffcc00; 
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.scroll-icon-box {
+  position: relative;
+  z-index: 2;
+  color: #ffcc00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.unique-scroll-container:hover .scroll-icon-box {
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+.unique-scroll-container:hover .progress-circle-bg {
+  fill: #000;
+}
+
+
+@media (max-width: 600px) {
+  .unique-scroll-container {
+    bottom: 20px;
+    right: 20px;
+    scale: 0.9;
+  }
+}

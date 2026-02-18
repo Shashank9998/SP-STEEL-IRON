@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Outfit:wght@300;400;700&display=swap');
+
+:root {
+  --gold: #ffcc00;
+  --dark-bg: #030303;
+  --card-bg: #0a0a0a;
+  --text-dim: #888;
+  --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.projects-root {
+  background: var(--dark-bg);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+}
+
+/* --- HEADER SECTION --- */
+.projects-header {
+  padding: 180px 0 80px;
+  text-align: center;
+  background: radial-gradient(circle at top, #111 0%, #030303 70%);
+}
+
+.gold-text {
+  color: var(--gold) !important;
+  letter-spacing: 4px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+}
+
+.massive-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(3rem, 10vw, 7.5rem) !important;
+  line-height: 0.85 !important;
+  margin: 30px 0 60px !important;
+  text-transform: uppercase;
+}
+
+.massive-title span {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gold);
+}
+
+/* --- FILTER BOX --- */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.filter-wrapper {
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  max-width: 95%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-wrapper::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 12px 25px;
+  border-radius: 100px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.65rem;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.filter-btn.active {
+  background: var(--gold);
+  color: #000;
+  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(255, 204, 0, 0.2);
+}
+
+/* --- MASONRY GRID & CARDS --- */
+.projects-grid-section {
+  padding-bottom: 100px;
+}
+
+.project-card {
+  background: transparent !important;
+  overflow: visible !important;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-img-container {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #111;
+}
+
+.project-img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%);
+  transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              filter 0.8s ease;
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  padding: 30px;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-overlay { opacity: 1; }
+.project-card:hover img { filter: grayscale(0%); transform: scale(1.08); }
+
+.overlay-content { transform: translateY(20px); transition: var(--transition); }
+.project-card:hover .overlay-content { transform: translateY(0); }
+
+.p-cat { color: var(--gold); font-family: 'Unbounded', sans-serif; font-size: 0.75rem !important; margin-bottom: 10px !important; }
+.p-desc { color: #ccc; font-size: 0.85rem; line-height: 1.5; font-weight: 300; }
+.project-link { 
+  margin-top: 15px;
+  font-family: 'Unbounded', sans-serif; 
+  font-size: 0.6rem; 
+  color: #fff; 
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--gold);
+  width: fit-content;
+}
+
+/* --- INFO TEXT BELOW IMAGE --- */
+.project-info {
+  padding: 20px 5px;
+}
+
+.p-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.1rem !important;
+  margin-bottom: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+}
+
+.p-loc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-loc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--gold);
+}
+
+.project-year {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+
+/* --- FOOTER CTA --- */
+.projects-footer {
+  padding: 120px 0;
+  text-align: center;
+  background: linear-gradient(to bottom, #030303, #080808);
+}
+
+.cta-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0 auto 40px;
+}
+
+.footer-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3rem) !important;
+  margin-bottom: 50px !important;
+  text-transform: uppercase;
+}
+
+.footer-text span { color: var(--gold); }
+
+.gold-btn {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  padding: 18px 40px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+.gold-btn:hover {
+  background: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* --- RESPONSIVE FIXES --- */
+@media (max-width: 900px) {
+  .massive-title { font-size: 4.5rem !important; }
+}
+
+@media (max-width: 600px) {
+  .massive-title { font-size: 3.2rem !important; }
+  .filter-wrapper { border-radius: 15px; padding: 5px; }
+  .filter-btn { padding: 10px 15px; font-size: 0.55rem; }
+  .project-info { padding: 15px 0; }
+  .p-title { font-size: 1rem !important; }
+}
+
+
+/* ઇમેજ પ્રોપર દેખાવા માટેનું સૌથી મહત્વનું સેટિંગ */
+.project-img-container {
+  position: relative;
+  width: 100%;
+  background-color: #0a0a0a;
+  min-height: 250px; /* આનાથી ઇમેજ લોડ ન થાય તો પણ જગ્યા જળવાઈ રહેશે */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.project-img-container img {
+  width: 100% !important;
+  height: auto !important; /* Masonry માટે auto હોવું જરૂરી છે */
+  display: block !important;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* MUI Masonry ઘણીવાર આઇટમ્સને છુપાવી દે છે, તેને રોકવા માટે: */
+.MuiImageListItem-root {
+  height: auto !important;
+  display: block !important;
+}
+
+.projects-grid-section {
+  padding: 40px 0;
+  overflow: visible !important;
+}
+
+.project-card {
+  margin-bottom: 30px !important;
+  break-inside: avoid; /* કોલમ વચ્ચે કાર્ડ કપાય નહીં */
+}

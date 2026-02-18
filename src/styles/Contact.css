@@ -1,0 +1,87 @@
+:root {
+  /* Vibrant Color Palette */
+  --accent-gold: #ffcc00;
+  --deep-bg: #0f0f12;
+  --glass-white: rgba(255, 255, 255, 0.08);
+  --neon-glow: rgba(255, 204, 0, 0.4);
+}
+
+/* Background Design - Adding a bit of depth */
+.contact-wrapper {
+  background-color: var(--deep-bg);
+  background-image: 
+    radial-gradient(circle at 50% 50%, #1a1a1e 0%, #0f0f12 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main Glass Card - Stronger Blur and Border Glow */
+.main-glass-card {
+  background: rgba(30, 30, 35, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+  transition: transform 0.3s ease;
+}
+
+/* Sidebar - Gradient with more character */
+.contact-sidebar {
+  background: linear-gradient(180deg, #16161a 0%, #0a0a0c 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.icon-box {
+  background: linear-gradient(135deg, rgba(255, 204, 0, 0.15), transparent);
+  padding: 14px;
+  border-radius: 15px;
+  color: var(--accent-gold);
+  border: 1px solid rgba(255, 204, 0, 0.2);
+}
+
+/* Form Styles - Better visibility and focus */
+.mui-input .MuiFilledInput-root {
+  background-color: var(--glass-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.mui-input .MuiFilledInput-root:focus-within {
+  border-color: var(--accent-gold) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 0 15px var(--neon-glow);
+}
+
+/* Submit Button - Pulsating Effect */
+.submit-btn {
+  background: linear-gradient(90deg, #ffcc00, #ffae00) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  box-shadow: 0 4px 15px var(--neon-glow) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--neon-glow) !important;
+  background: #fff !important; /* Shines white on hover */
+}
+
+/* Map Theme - Smooth Reveal */
+.map-glass {
+  border-radius: 20px;
+  filter: grayscale(1) brightness(0.7) contrast(1.2);
+  transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-glass:hover {
+  filter: grayscale(0) brightness(1) contrast(1);
+  transform: scale(1.01);
+}
+

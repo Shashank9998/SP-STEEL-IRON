@@ -1,0 +1,546 @@
+/* Custom Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;500;700&display=swap');
+
+:root {
+  --primary-steel: #0f172a;    /* Dark Navy Blue */
+  --accent-iron: #e11d48;     /* Vibrant Red/Rose */
+  --glass-white: rgba(255, 255, 255, 0.558);
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Main Header Container --- */
+.premium-header {
+  background: var(--glass-white) !important;
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  transition: var(--transition-smooth);
+}
+
+/* --- Premium Logo Design --- */
+.main-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none !important;
+  transition: transform 0.3s ease;
+}
+
+.main-logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-box {
+  background: linear-gradient(135deg, var(--primary-steel), #334155);
+  color: #ffffff;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.6rem;
+  border-radius: 14px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+  border-bottom: 4px solid var(--accent-iron); /* Industrial Detail */
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: var(--primary-steel);
+}
+
+.brand-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  color: var(--accent-iron);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* --- Desktop Navigation --- */
+.nav-item-link {
+  text-decoration: none;
+  color: var(--primary-steel);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-item-link:hover {
+  color: var(--accent-iron);
+}
+
+/* Underline Animation Effect */
+.underline {
+  height: 2px;
+  background: var(--accent-iron);
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item-link:hover .underline {
+  width: 100%;
+}
+
+/* --- Animated Search Section --- */
+.search-box-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.animated-search-input {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 50px;
+  padding: 6px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-right: -45px;
+  padding-right: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.search-toggle-btn {
+  background: #f1f5f9 !important;
+  color: var(--primary-steel) !important;
+  z-index: 5;
+  transition: var(--transition-smooth) !important;
+}
+
+.search-toggle-btn.active {
+  background: var(--accent-iron) !important;
+  color: white !important;
+  transform: rotate(90deg);
+}
+
+/* --- Hamburger Menu (Mobile) --- */
+.hamburger-btn {
+  background: var(--primary-steel) !important;
+  color: #ffffff !important;
+  border-radius: 12px !important;
+  padding: 10px !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2) !important;
+}
+
+.hamburger-btn:hover {
+  background: var(--accent-iron) !important;
+}
+
+/* --- Mobile Drawer Styling --- */
+/* .animated-drawer {
+  padding: 20px;
+  background: #ffffff;
+}
+
+.drawer-top-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f1f5f9;
+  margin-bottom: 20px;
+}
+
+.drawer-logo {
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--primary-steel);
+}
+
+.drawer-link span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  color: var(--primary-steel);
+  transition: 0.3s;
+}
+
+.drawer-link:hover span {
+  color: var(--accent-iron);
+  padding-left: 8px;
+} */
+/* --- Mobile Header Logo (Main Navbar) --- */
+@media (max-width: 600px) {
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .brand-name {
+    font-size: 1.1rem; /* Mobile ma thodu nanu */
+  }
+  .brand-tagline {
+    font-size: 0.5rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* --- Mobile Drawer Logo Styling --- */
+.drawer-branding-area {
+  padding: 40px 20px 30px;
+  background: linear-gradient(180deg, rgba(26, 35, 126, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.drawer-close-icon {
+  position: absolute !important;
+  top: 10px;
+  right: 10px;
+  color: var(--accent-iron) !important;
+}
+
+.drawer-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mini-logo-box {
+  background: var(--primary-steel);
+  color: white;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 15px rgba(15, 23, 42, 0.2);
+  border: 2px solid var(--accent-iron);
+}
+
+.drawer-logo-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--primary-steel);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.drawer-logo-subtitle {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent-iron);
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* --- Drawer List Styling --- */
+.drawer-nav-list {
+  padding: 15px !important;
+}
+
+.drawer-item-text span {
+  font-weight: 600 !important;
+  font-family: 'Poppins', sans-serif;
+  color: #334155;
+  font-size: 1rem !important;
+}
+
+/* --- Mobile Drawer Navigation Styling --- */
+
+/* Basic Button Styling */
+.drawer-nav-btn {
+  margin: 8px 0 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+/* Hover / Touch Effect */
+/* Mobile ma hover "Active" state jevu kaam kare chhe */
+.drawer-nav-btn:hover, 
+.drawer-nav-btn:active,
+.drawer-nav-btn.Mui-focusVisible {
+  background: rgba(26, 35, 126, 0.08) !important; /* Light Navy tint */
+  transform: translateX(8px); /* Thodu slide thase */
+  border-color: rgba(225, 29, 72, 0.2);
+}
+
+/* Red Dot Indicator on Hover */
+.drawer-nav-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background-color: var(--accent-iron);
+  transition: height 0.3s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+.drawer-nav-btn:hover::before {
+  height: 60%; /* Hover karta red line aavse */
+}
+
+/* Text Color change on Hover */
+.drawer-nav-btn:hover .drawer-nav-text span {
+  color: var(--accent-iron) !important;
+  font-weight: 800 !important;
+}
+
+/* Close Icon Hover Animation */
+.drawer-close-icon:hover {
+  background-color: rgba(225, 29, 72, 0.1) !important;
+  transform: rotate(90deg);
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+/* Desktop Dropdown Wrapper */
+.products-nav {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* MUI Menu customization */
+.desktop-product-menu .MuiPaper-root {
+  margin-top: 10px;
+  border-top: 3px solid var(--accent-iron) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  min-width: 180px;
+}
+
+.desktop-product-menu .MuiMenuItem-root {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-steel);
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.desktop-product-menu .MuiMenuItem-root:hover {
+  background: rgba(225, 29, 72, 0.05);
+  color: var(--accent-iron);
+  padding-left: 25px;
+}
+
+/* Accordion highlight in Mobile Drawer */
+.MuiCollapse-root {
+  border-left: 2px solid var(--accent-iron);
+  margin: 0 15px;
+}
+
+
+
+/* Header Background and container */
+.premium-header {
+    background-color: #ffffff8b !important;
+    color: #333 !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Logo Design */
+.main-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
+}
+
+.logo-box {
+    background: #1a237e;
+    color: white;
+    font-weight: 900;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+.brand-name {
+    font-weight: 800;
+    color: #1a237e;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.brand-tagline {
+    font-size: 0.65rem;
+    color: #666;
+    font-weight: 600;
+}
+
+/* Nav Links */
+.nav-item-link {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    /* margin-left: 50px; */
+    /* padding-left: 50px;
+    gap: 5px; */
+    display: flex;
+    align-items: left;
+}
+
+.nav-item-link:hover {
+    color: #f55308;
+}
+
+/* PREMIUM LOGIN BUTTON DESIGN */
+.premium-login-btn {
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%) !important;
+    color: #ffffff !important;
+    padding: 10px 30px !important;
+    border-radius: 50px !important; /* Rounded Pill Shape */
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 0.8rem !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3) !important;
+    transition: all 0.4s ease !important;
+}
+
+.premium-login-btn:hover {
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%) !important; /* Industrial Steel Red */
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4) !important;
+    transform: translateY(-2px);
+}
+
+/* Dropdown Menu Styling */
+.dropdown-divider {
+    margin: 8px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* Drawer Styling */
+.mobile-drawer-paper {
+    width: 280px !important;
+    padding-top: 20px;
+}
+
+.drawer-branding-area {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.drawer-logo-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1a237e;
+    margin-top: 10px;
+}
+
+.drawer-nav-btn {
+    padding: 12px 24px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Layout Alignment */
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Ensures Logo left, Nav right */
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.premium-header {
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+}
+
+/* Nav Link Styling */
+.nav-item-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-item-link:hover {
+    color: #e11d48;
+}
+
+/* THE DESIGNER LOGIN BUTTON */
+.premium-login-btn {
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%) !important;
+    color: white !important;
+    padding: 8px 25px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    font-size: 0.8rem !important;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.2) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.premium-login-btn:hover {
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%) !important;
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.3) !important;
+}
+
+/* Logo specific */
+.logo-box {
+    background: #070707;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+
+
+
