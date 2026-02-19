@@ -1059,12 +1059,6 @@ const Home = () => {
            </Box>
            <div className="services-container">
              {[
-               // { title: "Express Logistics", desc: "Reliable 24-hour delivery network across Gujarat for urgent project needs.", icon: "🚚", link: "/services/logistics" },
-               // { title: "Precision Processing", desc: "Customized cutting and bending services as per structural blueprints.", icon: "⚙️", link: "/services/processing" },
-               // { title: "Quality Testing", desc: "Advanced laboratory testing to ensure every ton meets ISI standards.", icon: "🔬", link: "/services/quality" },
-               // { title: "Bulk Solutions", desc: "Dedicated supply chain management for large scale infrastructure projects.", icon: "🏗️", link: "/services/bulk" },
-               // { title: "Technical Support", desc: "On-site expert consultation for material selection and estimation.", icon: "👨‍🏫", link: "/services/support" },
-               // { title: "Material Traceability", desc: "Complete digital tracking of your material from factory to site.", icon: "📋", link: "/services/tracking" }
                { title: "Express Logistics", desc: "Reliable 24-hour delivery network across Gujarat for urgent project needs.", icon: "🚚", link: "/services" },
                { title: "Precision Processing", desc: "Customized cutting and bending services as per structural blueprints.", icon: "⚙️", link: "/services" },
                { title: "Quality Testing", desc: "Advanced laboratory testing to ensure every ton meets ISI standards.", icon: "🔬", link: "/services" },

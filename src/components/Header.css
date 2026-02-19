@@ -544,3 +544,143 @@
 
 
 
+/* Wrapper */
+.mega-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Mega Menu Container */
+.mega-menu {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 850px;
+  padding: 35px 40px;
+
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.15),
+    0 5px 15px rgba(0,0,0,0.08);
+
+  border: 1px solid rgba(0,0,0,0.05);
+
+  z-index: 999;
+
+  animation: megaFade 0.25s ease;
+}
+
+/* Column */
+.mega-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+/* Heading */
+.mega-column h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0d1b2a;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+/* Heading underline */
+.mega-column h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #1a237e;
+}
+
+/* Links */
+.mega-column a {
+  text-decoration: none;
+  color: #444;
+  font-size: 14px;
+  padding: 6px 0;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+/* Link hover effect */
+.mega-column a:hover {
+  color: #d83d05;
+  padding-left: 6px;
+}
+
+/* Animated underline */
+.mega-column a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #1a237e;
+  transition: width 0.3s ease;
+}
+
+.mega-column a:hover::before {
+  width: 100%;
+}
+
+/* Animation */
+@keyframes megaFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Optional arrow pointer */
+.mega-menu::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: white;
+  rotate: 45deg;
+  box-shadow: -2px -2px 5px rgba(0,0,0,0.04);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+
+  .mega-menu {
+    width: 700px;
+    gap: 30px;
+  }
+
+}
+
+@media (max-width: 992px) {
+
+  .mega-menu {
+    display: none;
+  }
+
+}

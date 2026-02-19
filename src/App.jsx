@@ -173,6 +173,8 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 
 // Styles
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -224,6 +226,7 @@ function App() {
 
   if (initialLoading) return <Loader />;
   return (
+    <>
     <ProductProvider>
       <Router>
         <LayoutWrapper>
@@ -246,6 +249,19 @@ function App() {
         </LayoutWrapper>
       </Router>
     </ProductProvider>
+    <ToastContainer 
+        position="top-center" 
+        autoClose={3000} 
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      </>
   );
 }
 
