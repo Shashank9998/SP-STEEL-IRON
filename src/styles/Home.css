@@ -1082,3 +1082,39 @@
     .card-title { font-size: 2.5rem !important; }
     .card-floating-content { left: 5%; padding-right: 5%; }
 }
+
+
+
+/* ===== MOBILE TOUCH FIX ===== */
+
+.slider-global-glow,
+.card-overlay-gradient {
+    pointer-events: none !important;
+}
+
+.hero-card {
+    position: relative;
+    z-index: 1;
+}
+
+.card-floating-content {
+    position: absolute;
+    z-index: 10;
+    pointer-events: auto !important;
+}
+
+.card-btn-primary,
+.card-btn-wa {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 20;
+}
+
+/* Swiper fix */
+.swiper-slide {
+    pointer-events: auto !important;
+}
+
+.swiper-wrapper {
+    pointer-events: auto !important;
+}
