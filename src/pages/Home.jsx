@@ -869,6 +869,7 @@ const Home = () => {
     } else {
       window.open(url, "_blank");
     }
+    
 
   };
 
@@ -911,10 +912,12 @@ const Home = () => {
           slidesPerView={'auto'}
 
           simulateTouch={true}
+          longSwipes={false}
           allowTouchMove={true}
           touchStartPreventDefault={false}
           preventClicks={false}
           preventClicksPropagation={false}
+          
 
           creativeEffect={{
             prev: { shadow: true, translate: ['-120%', 0, -500], rotate: [0, 0, -20] },
@@ -1002,6 +1005,7 @@ const Home = () => {
                     </Button>
 
                   </Stack>
+                  
                 </div>
               </motion.div>
             </SwiperSlide>

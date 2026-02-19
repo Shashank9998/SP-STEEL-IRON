@@ -232,12 +232,14 @@ function App() {
         <LayoutWrapper>
           <Routes>
             {/* Public Routes */}
+            <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+            <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
             <Route path="/login" element={<Login onLogin={handleLoginSuccess} />} />
             <Route path="/register" element={<Register />} />
 
             {/* Protected Routes (Login jaruri che) */}
-            <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-            <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+            {/* <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+            <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} /> */}
             <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
             <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
             <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
