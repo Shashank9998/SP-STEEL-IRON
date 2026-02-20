@@ -959,7 +959,7 @@ const Home = () => {
               {slide.desc}
             </Typography>
 
-            <Stack direction={window.innerWidth < 600 ? "column" : "row"} spacing={2}>
+            {/* <Stack direction={window.innerWidth < 600 ? "column" : "row"} spacing={2}>
               <Button
                 variant="contained"
                 startIcon={<RequestQuoteIcon />}
@@ -993,7 +993,44 @@ const Home = () => {
               >
                 WhatsApp
               </Button>
-            </Stack>
+            </Stack> */}
+            <Stack direction={window.innerWidth < 600 ? "column" : "row"} spacing={2}>
+  <Button
+    variant="contained"
+    startIcon={<RequestQuoteIcon />}
+    className="card-btn-primary"
+    sx={{ 
+      bgcolor: slide.color, 
+      borderRadius: '50px', 
+      px: 4,
+      '&:hover': { bgcolor: slide.color } 
+    }}
+    onClick={(e) => {
+      e.stopPropagation();
+      handleOpen(slide.title);
+    }}
+  >
+    Get Quote
+  </Button>
+
+  <Button
+    variant="outlined"
+    startIcon={<WhatsAppIcon />}
+    className="card-btn-wa"
+    sx={{ 
+      color: '#25D366', 
+      borderColor: '#25D366', 
+      borderRadius: '50px',
+      px: 4
+    }}
+    onClick={(e) => {
+      e.stopPropagation();
+      handleWhatsAppDirect(slide.title);
+    }}
+  >
+    WhatsApp
+  </Button>
+</Stack>
           </div>
         </motion.div>
       </SwiperSlide>
