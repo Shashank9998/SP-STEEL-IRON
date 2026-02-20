@@ -790,7 +790,16 @@ import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectCreative, Navigation, Pagination, Mousewheel } from 'swiper/modules';
+// import { Autoplay, EffectCreative, Navigation, Pagination, Mousewheel } from 'swiper/modules';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+import {
+  Autoplay,
+  EffectCreative,
+  EffectCoverflow,
+  Navigation,
+  Pagination
+} from 'swiper/modules';
+import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 
 // Swiper styles
 import 'swiper/css';
@@ -886,132 +895,111 @@ const Home = () => {
     <Box className="home-root" sx={{ bgcolor: '#0a0a0a', color: '#fff' }}>
 
       {/* --- 1. PREMIUM CARD SLIDER SECTION --- */}
-      <section className="master-slider-section">
-        <div className="slider-global-glow"></div>
-
-        {/* <Swiper
-          grabCursor={true}
-          effect={'creative'}
-          centeredSlides={true}
-          slidesPerView={'auto'}
-          creativeEffect={{
-            prev: { shadow: true, translate: ['-120%', 0, -500], rotate: [0, 0, -20] },
-            next: { shadow: true, translate: ['120%', 0, -500], rotate: [0, 0, 20] },
+      {/* --- 1. NEW ATTRACTIVE SLIDER SECTION --- */}
+<section className="master-slider-section" style={{ background: '#0a0a0a', padding: '20px 0' }}>
+  <Swiper
+    effect={'coverflow'}
+    grabCursor={true}
+    centeredSlides={true}
+    slidesPerView={'auto'}
+    loop={true}
+    coverflowEffect={{
+      rotate: 30,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    }}
+    autoplay={{ delay: 4000, disableOnInteraction: false }}
+    pagination={{ clickable: true }}
+    navigation={true}
+    modules={[EffectCoverflow, Autoplay, Navigation, Pagination]}
+    className="premium-cards-swiper"
+    style={{ width: '100%', padding: '30px 0' }}
+  >
+    {sliderData.map((slide, index) => (
+      <SwiperSlide key={index} className="card-slide" style={{ width: 'auto' }}>
+        <motion.div
+          className="hero-card"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          style={{
+            width: window.innerWidth < 600 ? '320px' : '800px', // Mobile vs Desktop width
+            height: window.innerWidth < 600 ? '450px' : '500px',
+            position: 'relative',
+            borderRadius: '20px',
+            overflow: 'hidden'
           }}
-          loop={true}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true, dynamicBullets: true }}
-          navigation={true}
-          modules={[EffectCreative, Autoplay, Navigation, Pagination]}
-          className="premium-cards-swiper"
-        > */}
-        <Swiper
-          grabCursor={true}
-          effect={'creative'}
-          centeredSlides={true}
-          slidesPerView={'auto'}
-
-          simulateTouch={true}
-          longSwipes={false}
-          allowTouchMove={true}
-          touchStartPreventDefault={false}
-          preventClicks={false}
-          preventClicksPropagation={false}
-          
-
-          creativeEffect={{
-            prev: { shadow: true, translate: ['-120%', 0, -500], rotate: [0, 0, -20] },
-            next: { shadow: true, translate: ['120%', 0, -500], rotate: [0, 0, 20] },
-          }}
-
-          loop={true}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true, dynamicBullets: true }}
-          navigation={true}
-
-          modules={[EffectCreative, Autoplay, Navigation, Pagination]}
-          className="premium-cards-swiper"
         >
+          {/* Image */}
+          <img 
+            src={slide.img} 
+            alt={slide.title} 
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+          />
+          
+          {/* Overlay Gradient */}
+          <div className="card-overlay-gradient" style={{
+            position: 'absolute', bottom: 0, left: 0, right: 0,
+            height: '100%', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)'
+          }}></div>
 
-          {sliderData.map((slide, index) => (
-            <SwiperSlide key={index} className="card-slide">
-              <motion.div
-                className="hero-card"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
+          {/* Content */}
+          <div className="card-floating-content" style={{
+            position: 'absolute', bottom: '30px', left: '30px', right: '30px'
+          }}>
+            <Typography variant="overline" sx={{ color: slide.color, fontWeight: 'bold' }}>
+              Premium Quality
+            </Typography>
+            <Typography variant={window.innerWidth < 600 ? "h4" : "h2"} sx={{ color: '#fff', mb: 1 }}>
+              {slide.title}
+            </Typography>
+            <Typography variant="body2" sx={{ color: '#ccc', mb: 3, maxWidth: '500px' }}>
+              {slide.desc}
+            </Typography>
+
+            <Stack direction={window.innerWidth < 600 ? "column" : "row"} spacing={2}>
+              <Button
+                variant="contained"
+                startIcon={<RequestQuoteIcon />}
+                sx={{ 
+                  bgcolor: slide.color, 
+                  borderRadius: '50px', 
+                  px: 4,
+                  '&:hover': { bgcolor: slide.color, opacity: 0.9 } 
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleOpen(slide.title);
+                }}
               >
-                {/* Image Wrap */}
-                <div className="card-image-wrapper">
-                  <img src={slide.img} alt={slide.title} className="card-img-main" />
-                  <div className="card-overlay-gradient"></div>
-                </div>
-
-                {/* Content Overlay */}
-                <div className="card-floating-content">
-                  <Typography variant="overline" className="card-overline" sx={{ color: slide.color }}>
-                    Strength Redefined
-                  </Typography>
-                  <Typography variant="h2" className="card-title">
-                    {slide.title}
-                  </Typography>
-                  <Typography variant="body1" className="card-description">
-                    {slide.desc}
-                  </Typography>
-
-                  <Stack direction="row" spacing={2} sx={{ mt: 3 }}>
-                    {/* <Button
-                      variant="contained"
-                      className="card-btn-primary"
-                      sx={{ background: slide.color, '&:hover': { background: slide.color, opacity: 0.9 } }}
-                      onClick={() => handleOpen(slide.title)}
-                    >
-                      Get Quote
-                    </Button> */}
-                    <Button
-                      variant="contained"
-                      className="card-btn-primary"
-                      sx={{
-                        background: slide.color,
-                        '&:hover': { background: slide.color, opacity: 0.9 }
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleOpen(slide.title);
-                      }}
-                    >
-                      Get Quote
-                    </Button>
-
-
-                    {/* <Button
-                      variant="outlined"
-                      className="card-btn-wa"
-                      startIcon={<WhatsAppIcon />}
-                      onClick={() => handleWhatsAppDirect(slide.title)}
-                    >
-                      WhatsApp
-                    </Button> */}
-                    <Button
-                      variant="outlined"
-                      className="card-btn-wa"
-                      startIcon={<WhatsAppIcon />}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleWhatsAppDirect(slide.title);
-                      }}
-                    >
-                      WhatsApp
-                    </Button>
-
-                  </Stack>
-                  
-                </div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
+                Get Quote
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<WhatsAppIcon />}
+                sx={{ 
+                  color: '#fff', 
+                  borderColor: '#25D366', 
+                  borderRadius: '50px',
+                  px: 4,
+                  '&:hover': { borderColor: '#128C7E', bgcolor: 'rgba(37,211,102,0.1)' }
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleWhatsAppDirect(slide.title);
+                }}
+              >
+                WhatsApp
+              </Button>
+            </Stack>
+          </div>
+        </motion.div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</section>
 
       {/* --- ABOUT US SECTION --- */}
       <section className="about-section">

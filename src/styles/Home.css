@@ -950,142 +950,318 @@
 
 
 
+/* ========================= */
+/* SECTION BACKGROUND */
+/* ========================= */
 
-
-
-/* --- MASTER SLIDER PREMIUM STYLES --- */
 .master-slider-section {
-    padding: 60px 0;
-    background: #0a0a0a; /* Dark background to make cards pop */
-    position: relative;
-    overflow: hidden;
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
+  position: relative;
+  padding: 100px 0;
+  background: linear-gradient(180deg, #0a0a0a, #050505);
+  overflow: hidden;
 }
 
-/* Background Glow Effect */
+
+/* soft glow background */
+
 .slider-global-glow {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 51, 102, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    filter: blur(80px);
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,242,254,0.12), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(100px);
+  z-index: 0;
 }
+
+
+
+/* ========================= */
+/* SWIPER LAYOUT */
+/* ========================= */
 
 .premium-cards-swiper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 100px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
 .card-slide {
-    width: 85% !important; /* Card Width */
-    max-width: 1000px;
-    display: flex;
-    justify-content: center;
+  width: 340px;
+  display: flex;
+  justify-content: center;
 }
+
+
+
+/* ========================= */
+/* CARD DESIGN */
+/* ========================= */
 
 .hero-card {
-    position: relative;
-    width: 100%;
-    height: 550px;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8); /* Jordar Shadow */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: #1a1a1a;
-    touch-action: pan-y;
+
+  width: 100%;
+  height: 460px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background: rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(15px);
+
+  transition: all 0.35s ease;
+
+  cursor: grab;
 }
 
+
+.hero-card:hover {
+
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.6),
+    0 0 20px rgba(0,242,254,0.2);
+}
+
+
+
+/* ========================= */
+/* IMAGE */
+/* ========================= */
+
 .card-image-wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+  position: absolute;
+  inset: 0;
 }
 
 .card-img-main {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 10s linear; /* Slow zoom animation */
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  user-select: none;
+
+  pointer-events: none;
 }
 
-.card-slide.swiper-slide-active .card-img-main {
-    transform: scale(1.2);
-}
+
+
+/* gradient overlay */
 
 .card-overlay-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.4) 60%, transparent 100%);
+
+  position: absolute;
+  inset: 0;
+
+  background:
+  linear-gradient(
+    to top,
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.1)
+  );
 }
+
+
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
 
 .card-floating-content {
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translateY(-50%);
-    max-width: 500px;
-    z-index: 2;
+
+  position: absolute;
+
+  bottom: 0;
+
+  padding: 24px;
+
+  width: 100%;
+
+  z-index: 10;
 }
 
-.card-title {
-    color: #fff;
-    font-weight: 800 !important;
-    font-size: 4rem !important;
-    line-height: 1.1 !important;
-    margin: 15px 0 !important;
-    text-transform: uppercase;
-}
 
 .card-overline {
-    letter-spacing: 4px !important;
-    font-weight: 700 !important;
-    font-size: 1rem !important;
+
+  font-size: 12px !important;
+
+  letter-spacing: 1.5px;
+
+  opacity: 0.8;
 }
+
+
+.card-title {
+
+  font-size: 26px !important;
+
+  font-weight: 700 !important;
+
+  margin: 6px 0 !important;
+
+  color: #fff;
+}
+
 
 .card-description {
-    color: rgba(255,255,255,0.7);
-    font-size: 1.2rem !important;
-    margin-bottom: 30px !important;
+
+  font-size: 14px !important;
+
+  color: #ccc;
+
+  line-height: 1.5;
 }
 
-/* Button Animations */
-.card-btn-primary {
-    padding: 12px 35px !important;
-    border-radius: 50px !important;
-    font-weight: bold !important;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+
+
+/* ========================= */
+/* BUTTON BASE */
+/* ========================= */
+
+.card-btn-primary,
+.card-btn-wa {
+
+  border-radius: 10px !important;
+
+  font-weight: 600 !important;
+
+  padding: 9px 20px !important;
+
+  text-transform: none !important;
+
+  transition: all 0.25s ease !important;
+
+  pointer-events: auto !important;
 }
+
+
+
+/* PRIMARY BUTTON */
+
+.card-btn-primary {
+
+  color: white !important;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.4);
+}
+
+
+.card-btn-primary:hover {
+
+  transform: scale(1.06);
+
+  box-shadow:
+    0 10px 25px rgba(0,242,254,0.4);
+}
+
+
+
+/* WHATSAPP BUTTON */
 
 .card-btn-wa {
-    color: #fff !important;
-    border-color: rgba(255,255,255,0.5) !important;
-    padding: 12px 35px !important;
-    border-radius: 50px !important;
-    backdrop-filter: blur(10px);
-    pointer-events: auto !important; /* માત્ર બટન પર ક્લિક થવું જોઈએ */
-    position: relative;
-    z-index: 100 !important;
+
+  border: 1px solid #25D366 !important;
+
+  color: #25D366 !important;
 }
+
 
 .card-btn-wa:hover {
-    background: #25d366 !important;
-    border-color: #25d366 !important;
+
+  background: rgba(37,211,102,0.12) !important;
+
+  transform: scale(1.06);
+
+  box-shadow:
+    0 8px 20px rgba(37,211,102,0.3);
 }
 
-/* Responsive Scaling */
+
+
+/* ========================= */
+/* NAVIGATION */
+/* ========================= */
+
+.swiper-button-next,
+.swiper-button-prev {
+
+  color: white;
+
+  width: 42px;
+  height: 42px;
+
+  background: rgba(255,255,255,0.08);
+
+  border-radius: 50%;
+
+  backdrop-filter: blur(8px);
+
+  transition: 0.3s;
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+
+  background: rgba(255,255,255,0.2);
+
+  transform: scale(1.1);
+}
+
+
+
+/* ========================= */
+/* PAGINATION */
+/* ========================= */
+
+.swiper-pagination-bullet {
+
+  background: #aaa;
+
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+
+  background: #00f2fe;
+
+  opacity: 1;
+}
+
+
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
 @media (max-width: 768px) {
-    .hero-card { height: 600px; }
-    .card-title { font-size: 2.5rem !important; }
-    .card-floating-content { left: 5%; padding-right: 5%; z-index: 99 !important; pointer-events: none;  }
+
+  .master-slider-section {
+    padding: 70px 0;
+  }
+
+  .card-slide {
+    width: 280px;
+  }
+
+  .hero-card {
+    height: 420px;
+  }
+
+  .card-title {
+    font-size: 22px !important;
+  }
+
 }
-
-
-
