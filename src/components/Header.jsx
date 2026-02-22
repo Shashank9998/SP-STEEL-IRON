@@ -273,7 +273,7 @@ const Header = () => {
 
                      <ListItemButton
                        component={Link}
-                       to="/products/sheets"
+                       to="/products/steelsheets"
                        onClick={() => setIsDrawerOpen(false)}
                        sx={{ pl: 2 }}
                      >
@@ -301,7 +301,7 @@ const Header = () => {
 
                      <ListItemButton
                        component={Link}
-                       to="/products/stainless-steel-coils"
+                       to="/products/stainless-steel"
                        onClick={() => setIsDrawerOpen(false)}
                        sx={{ pl: 2 }}
                      >
