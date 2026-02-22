@@ -85,3 +85,199 @@
   transform: scale(1.01);
 }
 
+
+
+
+/* Review Form Specific Styling */
+.review-form-card {
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  border: 1px solid rgba(255, 204, 0, 0.2);
+  border-radius: 20px;
+}
+
+.star-rating-box {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px dashed rgba(255, 204, 0, 0.4);
+}
+
+.review-input .MuiOutlinedInput-root {
+  color: white !important;
+}
+
+.review-input .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.review-input .MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.review-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #ffcc00 !important;
+}
+
+.btn-yellow {
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  letter-spacing: 1px;
+}
+
+.btn-yellow:hover {
+  background-color: #e6b800;
+  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+}
+
+.stat-box {
+  background: rgba(151, 151, 151, 0.815);
+  padding: 15px 25px;
+  border-radius: 12px;
+  border-left: 3px solid #ffcc00;
+}
+
+
+
+/* Submit Button Styling */
+.btn-yellow {
+  background-color: #ffcc00 !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none !important;
+  padding: 15px !important;
+  border-radius: 10px !important;
+  cursor: pointer;
+  display: block !important;
+  width: 100% !important; /* Proper Width */
+  transition: all 0.3s ease-in-out !important;
+}
+
+.btn-yellow:hover:not(:disabled) {
+  background-color: #e6b800 !important;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.btn-yellow:disabled {
+  background-color: rgba(255, 204, 0, 0.3) !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  cursor: not-allowed;
+}
+
+
+
+/* Container Background for Form Side */
+.form-container {
+  background: #121212; /* Deep Dark */
+}
+
+/* Material UI Input Customization */
+.modern-input .MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.7) !important; /* Clearly Visible Label */
+  font-size: 0.9rem;
+}
+
+.modern-input .MuiInputLabel-root.Mui-focused {
+  color: #ffcc00 !important; /* Highlight on Focus */
+}
+
+.modern-input .MuiOutlinedInput-root {
+  color: white !important; /* Input Text Color */
+  background: rgba(255, 255, 255, 0.03);
+  transition: 0.3s;
+}
+
+.modern-input .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.2) !important; /* Subtle Border */
+  border-width: 1px;
+}
+
+.modern-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.modern-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #ffcc00 !important; /* Golden Border on Focus */
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.1);
+}
+
+/* Icons in Select Menu */
+.modern-input .MuiSvgIcon-root {
+  color: #ffcc00 !important;
+}
+
+/* The Main Submit Button */
+.main-submit-btn {
+  background: #ffcc00 !important;
+  color: #000 !important;
+  font-weight: 800 !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+  letter-spacing: 1px !important;
+  transition: 0.3s !important;
+}
+
+.main-submit-btn:hover {
+  background: #fff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Success Animation Circle */
+.success-icon-circle {
+  background: rgba(255, 204, 0, 0.1);
+  padding: 30px;
+  border-radius: 50%;
+  border: 2px solid #ffcc00;
+  margin-bottom: 10px;
+}
+
+
+
+/* Reviews Container */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+/* Updated Review Card */
+.review-card {
+  background: rgba(255, 255, 255, 0.05); /* Light glass effect */
+  backdrop-filter: blur(5px);
+  border-left: 4px solid #ffcc00; /* Signature Golden Border */
+  padding: 25px;
+  margin: 10px;
+  border-radius: 15px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.review-card:hover {
+  background: rgba(255, 204, 0, 0.08);
+  transform: translateY(-10px); /* Card lifts up on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-left: 6px solid #ffcc00;
+}
+
+.stars {
+  color: #ffcc00;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+}
+
+.review-card h5 {
+  color: #ffffff;
+  margin-top: 15px;
+  font-weight: 700;
+}
+
+.review-card small {
+  color: #ffcc00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

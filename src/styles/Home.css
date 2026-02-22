@@ -1238,6 +1238,7 @@
 /* ========================= */
 
 @media (max-width: 1024px) {
+  
 
 .hero-card {
 
@@ -1283,4 +1284,17 @@
 
 }
 
+}
+
+
+.premium-review-card {
+  min-height: 320px; /* બધા કાર્ડ એક સરખી સાઈઝના દેખાય તે માટે */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.review-text {
+  font-style: italic;
+  color: #ddd;
+  margin-bottom: 20px;
 }

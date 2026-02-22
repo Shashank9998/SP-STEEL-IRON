@@ -50,7 +50,7 @@
 //     <Router>
 //       <div className="app-container">
 //         <Header />
-        
+
 //         <main className="content">
 //           <Routes>
 //             <Route path="/" element={<Home />} />
@@ -59,7 +59,7 @@
 //             <Route path="/products" element={<Products />} />
 //             <Route path="/projects" element={<Projects />} />
 //             <Route path="/contact" element={<Contact />} />
-            
+
 //             {/* Catch-all route for 404 Page */}
 //             <Route path="*" element={<NotFound />} />
 //           </Routes>
@@ -118,15 +118,15 @@
 
 // function App() {
 //   return (
-   
-   
+
+
 //     <ProductProvider>
 //     <Router>
 //       <div className="app-container">
-        
+
 //         {/* Header Router ni andar j hovvo joie */}
 //         <Header />
-        
+
 //         <main className="content">
 //           <Routes>
 //             <Route path="/" element={<Home />} />
@@ -135,7 +135,7 @@
 //             <Route path="/products" element={<Products />} />
 //             <Route path="/projects" element={<Projects />} />
 //             <Route path="/contact" element={<Contact />} />
-            
+
 //             {/* 404 Page (Optional) */}
 //             <Route path="*" element={<div className="container mt-5"><h1>404 - Not Found</h1></div>} />
 //           </Routes>
@@ -166,11 +166,22 @@ import { ProductProvider } from './context/ProductContext';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-import Products from './pages/Products';
+// import Products from './pages/Products';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import ProductCategory from './pages/ProductCategory';
+
+// import TMT from "./pages/products/TMT";
+// import BeamsColumns from "./pages/products/BeamsColumns";
+// import Plates from "./pages/products/Plates";
+// import Pipes from "./pages/products/Pipes";
+// import StainlessSteel from "./pages/products/StainlessSteel";
+// import Sheets from "./pages/products/Sheets";
+// import NotFound from './pages/NotFound';
+// import Steelsheets from './pages/products/Steelsheets';
+// import StainlessSteelCoils from './pages/products/Stainlesssteelcoils';
 
 // Styles
 import { ToastContainer } from 'react-toastify';
@@ -214,46 +225,76 @@ const LayoutWrapper = ({ children }) => {
   );
 };
 
+// function App() {
+//   const [initialLoading, setInitialLoading] = useState(false);
+
+//   const handleLoginSuccess = () => {
+//     setInitialLoading(true);
+//     setTimeout(() => {
+//       setInitialLoading(false);
+//     }, 1500);
+//   };
 function App() {
-  const [initialLoading, setInitialLoading] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   const handleLoginSuccess = () => {
-    setInitialLoading(true);
+
+    setLoading(true);
+
     setTimeout(() => {
-      setInitialLoading(false);
-    }, 1500);
+
+      localStorage.setItem("isLoggedIn", "true");
+
+      setLoading(false);
+
+      window.location.href = "/services";
+
+    }, 1000);
+
   };
 
-  if (initialLoading) return <Loader />;
+
+  if (loading) return <Loader />;
   return (
     <>
-    <ProductProvider>
-      <Router>
-        <LayoutWrapper>
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-            <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
-            <Route path="/login" element={<Login onLogin={handleLoginSuccess} />} />
-            <Route path="/register" element={<Register />} />
+      <ProductProvider>
+        <Router>
+          <LayoutWrapper>
+            <Routes>
+              {/* Public Routes */}
+              <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+              <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+              <Route path="/login" element={<Login onLogin={handleLoginSuccess} />} />
+              <Route path="/register" element={<Register />} />
 
-            {/* Protected Routes (Login jaruri che) */}
-            {/* <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+              {/* Protected Routes (Login jaruri che) */}
+              {/* <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} /> */}
-            <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
-            <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
-            <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
-            <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+              <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
+              {/* <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
+              <Route path="/productcategory" element={<ProtectedRoute><ProductCategory /></ProtectedRoute>} /> */}
+              <Route path="/products/:id" element={<ProductCategory />} />
+              {/* <Route path="/products/tmt" element={<TMT />} />
+              <Route path="/products/beams-columns" element={<BeamsColumns />} />
+              <Route path="/products/plates" element={<Plates />} />
+              <Route path="/products/pipes" element={<Pipes />} />
+              <Route path="/products/stainless-steel" element={<StainlessSteel />} />
+              <Route path="/products/steelsheets" element={<Steelsheets />} />
+              <Route path="/products/sheets" element={<Sheets />} />
+              <Route path="/products/stainless-steel-coils" element={<StainlessSteelCoils />} /> */}
+              <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
+              <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
 
-            {/* 404 Page */}
-            <Route path="*" element={<div className="container mt-5 text-white"><h1>404 - Not Found</h1></div>} />
-          </Routes>
-        </LayoutWrapper>
-      </Router>
-    </ProductProvider>
-    <ToastContainer 
-        position="top-center" 
-        autoClose={3000} 
+              {/* 404 Page */}
+              <Route path="*" element={<div className="container mt-5 text-white"><h1>404 - Not Found</h1></div>} />
+            </Routes>
+          </LayoutWrapper>
+        </Router>
+      </ProductProvider>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -263,7 +304,7 @@ function App() {
         pauseOnHover
         theme="dark"
       />
-      </>
+    </>
   );
 }
 

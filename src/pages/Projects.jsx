@@ -485,8 +485,19 @@
 
 // export default Projects;
 
-import React, { useState } from 'react';
-import { Box, Container, Typography, ImageList, ImageListItem, useMediaQuery, useTheme } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { 
+  Box, 
+  Container, 
+  Typography, 
+  ImageList, 
+  ImageListItem, 
+  useMediaQuery, 
+  useTheme 
+} from '@mui/material';
+
+import { useLocation } from 'react-router-dom';
+
 import '../styles/Projects.css';
 
 const projectsData = [
@@ -499,7 +510,6 @@ const projectsData = [
   { id: 7, title: "Material Handling", category: "Infrastructure", location: "Mundra", image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format" },
   { id: 8, title: "Convention Centre", category: "Commercial", location: "Gift City", image: "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?q=80&w=800&auto=format" },
   { id: 9, title: "Assembly Line", category: "Industrial", location: "Becharaji", image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format" },
-  // { id: 10, title: "Solar Rooftop", category: "Solar", location: "Vatva", image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg" },
   { id: 10, title: "Solar Rooftop", category: "Solar", location: "Vatva", image: "https://images.pexels.com/photos/30440512/pexels-photo-30440512.jpeg" },
   { id: 11, title: "Pedestrian Bridge", category: "Infrastructure", location: "Sabarmati", image: "https://images.pexels.com/photos/10149139/pexels-photo-10149139.jpeg" },
   { id: 12, title: "Data Center", category: "Commercial", location: "Mumbai", image: "https://images.pexels.com/photos/5408005/pexels-photo-5408005.jpeg" },
@@ -511,96 +521,188 @@ const projectsData = [
 ];
 
 const Projects = () => {
+
   const [filter, setFilter] = useState('All');
+
   const theme = useTheme();
+
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
+
   const cols = isMobile ? 1 : isTablet ? 2 : 3;
 
-  const filteredProjects = filter === 'All' 
-    ? projectsData 
-    : projectsData.filter(p => p.category === filter);
+
+  // ✅ SCROLL RESET FIX
+  const location = useLocation();
+
+  useEffect(() => {
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"
+    });
+
+  }, [location.pathname]);
+
+
+  const filteredProjects =
+    filter === 'All'
+      ? projectsData
+      : projectsData.filter(p => p.category === filter);
+
 
   return (
+
     <Box className="projects-root">
+
+      {/* HEADER */}
       <section className="projects-header">
+
         <Container maxWidth="lg">
-          <Typography variant="overline" className="gold-text">OUR ARCHITECTURAL LEGACY</Typography>
+
+          <Typography variant="overline" className="gold-text">
+            OUR ARCHITECTURAL LEGACY
+          </Typography>
+
           <Typography variant="h1" className="massive-title">
             PROVEN <span>STRENGTH.</span>
           </Typography>
-          
+
+
+          {/* FILTER */}
           <div className="filter-container">
+
             <div className="filter-wrapper">
+
               {['All', 'Industrial', 'Infrastructure', 'Solar', 'Commercial'].map((cat) => (
-                <button 
+
+                <button
                   key={cat}
                   className={`filter-btn ${filter === cat ? 'active' : ''}`}
                   onClick={() => setFilter(cat)}
                 >
                   {cat}
                 </button>
+
               ))}
+
             </div>
+
           </div>
+
         </Container>
+
       </section>
 
+
+      {/* GRID */}
       <section className="projects-grid-section">
+
         <Container maxWidth="xl">
-          <ImageList 
-            variant="masonry" 
-            cols={cols} 
+
+          <ImageList
+            variant="masonry"
+            cols={cols}
             gap={24}
-            sx={{ overflowY: 'visible' }} // Fixes images disappearing on scroll
+            sx={{ overflowY: 'visible' }}
           >
+
             {filteredProjects.map((project) => (
+
               <ImageListItem key={project.id} className="project-card">
+
                 <div className="project-img-container">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     loading="lazy"
-                    style={{ 
-                      width: '100%', 
+                    style={{
+                      width: '100%',
                       display: 'block',
-                      minHeight: '200px', // Placeholder height
+                      minHeight: '200px',
                       background: '#111'
                     }}
                   />
+
                   <div className="project-overlay">
+
                     <div className="overlay-content">
-                      <Typography variant="h6" className="p-cat">{project.category}</Typography>
-                      <Typography variant="body2" className="p-desc">{project.title} - High grade steel supply.</Typography>
-                      <div className="project-link">TECHNICAL SPECS →</div>
+
+                      <Typography variant="h6" className="p-cat">
+                        {project.category}
+                      </Typography>
+
+                      <Typography variant="body2" className="p-desc">
+                        {project.title} - High grade steel supply.
+                      </Typography>
+
+                      <div className="project-link">
+                        TECHNICAL SPECS →
+                      </div>
+
                     </div>
+
                   </div>
+
                 </div>
-                
+
+
                 <div className="project-info">
-                  <Typography variant="h5" className="p-title">{project.title}</Typography>
+
+                  <Typography variant="h5" className="p-title">
+                    {project.title}
+                  </Typography>
+
                   <div className="p-loc-row">
-                    <div className="p-loc"><span className="dot"></span> {project.location}</div>
-                    <span className="project-year">2024</span>
+
+                    <div className="p-loc">
+                      <span className="dot"></span> {project.location}
+                    </div>
+
+                    <span className="project-year">
+                      2024
+                    </span>
+
                   </div>
+
                 </div>
+
               </ImageListItem>
+
             ))}
+
           </ImageList>
+
         </Container>
+
       </section>
 
+
+      {/* FOOTER */}
       <section className="projects-footer">
+
         <Container maxWidth="md">
+
           <div className="cta-divider"></div>
+
           <Typography variant="h3" className="footer-text">
             FORGING THE <span>FUTURE</span> TOGETHER.
           </Typography>
-          <button className="gold-btn">GET A PROJECT QUOTE</button>
+
+          <button className="gold-btn">
+            GET A PROJECT QUOTE
+          </button>
+
         </Container>
+
       </section>
+
     </Box>
+
   );
+
 };
 
 export default Projects;

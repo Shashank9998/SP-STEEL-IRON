@@ -684,3 +684,89 @@
   }
 
 }
+
+
+
+
+/* Update these in your Header.css */
+/* .mega-menu {
+  background-color: #0a0a0a !important; 
+  border-top: 3px solid #d4af37 !important; 
+}
+
+.mega-column h4 {
+  color: #d4af37 !important; 
+}
+
+.mega-column a {
+  color: #ffffff !important;
+}
+
+.mega-column a:hover {
+  color: #d4af37 !important; 
+  padding-left: 5px;
+  transition: all 0.3s ease;
+} */
+
+
+
+
+
+
+/* Desktop User Profile */
+.user-profile-btn {
+  text-transform: none !important;
+  color: #333 !important;
+  font-weight: 600 !important;
+  padding: 5px 12px !important;
+  border-radius: 50px !important;
+  transition: all 0.3s ease !important;
+}
+
+.user-profile-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.user-name-text {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* User Dropdown Menu */
+.user-dropdown-paper {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  border-radius: 12px !important;
+  margin-top: 10px !important;
+  min-width: 180px !important;
+}
+
+/* Mobile User Card */
+.mobile-user-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+/* Mobile Logout Button */
+.mobile-logout-btn {
+  background: #fff !important;
+  color: #d32f2f !important;
+  border: 1.5px solid #d32f2f !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  font-weight: bold !important;
+}
+
+.mobile-login-btn {
+  background: linear-gradient(135deg, #0024a6, #00163e) !important;
+  color: #fff !important;
+  padding: 12px !important;
+  border-radius: 10px !important;
+  font-weight: bold !important;
+}

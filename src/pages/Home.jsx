@@ -779,7 +779,7 @@
 // import 'swiper/css/pagination';
 // import '../styles/Home.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box, Typography, Button, Container, Dialog,
   DialogTitle, DialogContent, TextField, MenuItem,
@@ -807,6 +807,7 @@ import 'swiper/css/effect-creative';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '../styles/Home.css';
+import { useLocation } from 'react-router-dom';
 
 
 const formInputStyle = {
@@ -878,9 +879,36 @@ const Home = () => {
     } else {
       window.open(url, "_blank");
     }
-    
+
 
   };
+  const [userReviews, setUserReviews] = useState([]);
+
+  useEffect(() => {
+    // LocalStorage માંથી યુઝરે સબમિટ કરેલા રિવ્યુ લોડ કરો
+    const savedReviews = JSON.parse(localStorage.getItem('user_reviews') || '[]');
+
+    // ડિફોલ્ટ રિવ્યુ જે તમે પહેલેથી રાખવા માંગો છો
+    const defaultReviews = [
+      { name: "Rajesh Mehta", role: "Real Estate Developer", text: "SP Iron & Steel has been our trusted partner for 10 years.", img: "https://i.pravatar.cc/150?u=1", rating: 5 },
+      { name: "Suresh Patel", role: "Civil Contractor", text: "Reliable delivery and transparent pricing.", img: "https://i.pravatar.cc/150?u=2", rating: 4 }
+    ];
+
+    // બંને રિવ્યુને ભેગા કરો (નવા રિવ્યુ પહેલા દેખાશે)
+    setUserReviews([...savedReviews, ...defaultReviews]);
+  }, []);
+
+  const location = useLocation();
+
+  useEffect(() => {
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"
+    });
+
+  }, [location.pathname]);
 
 
   const sliderData = [
@@ -891,75 +919,77 @@ const Home = () => {
     { title: "MS PLATES", desc: "Premium grade hot-rolled plates for heavy engineering.", img: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?q=80&w=1200", color: "#22c55e" }
   ];
 
+
+
   return (
     <Box className="home-root" sx={{ bgcolor: '#0a0a0a', color: '#fff' }}>
 
       {/* --- 1. PREMIUM CARD SLIDER SECTION --- */}
       {/* --- 1. NEW ATTRACTIVE SLIDER SECTION --- */}
-<section className="master-slider-section" style={{ background: '#0a0a0a', padding: '20px 0' }}>
-  <Swiper
-    effect={'coverflow'}
-    grabCursor={true}
-    centeredSlides={true}
-    slidesPerView={'auto'}
-    loop={true}
-    coverflowEffect={{
-      rotate: 30,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    }}
-    autoplay={{ delay: 4000, disableOnInteraction: false }}
-    pagination={{ clickable: true }}
-    navigation={true}
-    modules={[EffectCoverflow, Autoplay, Navigation, Pagination]}
-    className="premium-cards-swiper"
-    style={{ width: '100%', padding: '30px 0' }}
-  >
-    {sliderData.map((slide, index) => (
-      <SwiperSlide key={index} className="card-slide" style={{ width: 'auto' }}>
-        <motion.div
-          className="hero-card"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          style={{
-            width: window.innerWidth < 600 ? '320px' : '800px', // Mobile vs Desktop width
-            height: window.innerWidth < 600 ? '450px' : '500px',
-            position: 'relative',
-            borderRadius: '20px',
-            overflow: 'hidden'
+      <section className="master-slider-section" style={{ background: '#0a0a0a', padding: '20px 0' }}>
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          loop={true}
+          coverflowEffect={{
+            rotate: 30,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
           }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          navigation={true}
+          modules={[EffectCoverflow, Autoplay, Navigation, Pagination]}
+          className="premium-cards-swiper"
+          style={{ width: '100%', padding: '30px 0' }}
         >
-          {/* Image */}
-          <img 
-            src={slide.img} 
-            alt={slide.title} 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-          />
-          
-          {/* Overlay Gradient */}
-          <div className="card-overlay-gradient" style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0,
-            height: '100%', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)'
-          }}></div>
+          {sliderData.map((slide, index) => (
+            <SwiperSlide key={index} className="card-slide" style={{ width: 'auto' }}>
+              <motion.div
+                className="hero-card"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                style={{
+                  width: window.innerWidth < 600 ? '320px' : '800px', // Mobile vs Desktop width
+                  height: window.innerWidth < 600 ? '450px' : '500px',
+                  position: 'relative',
+                  borderRadius: '20px',
+                  overflow: 'hidden'
+                }}
+              >
+                {/* Image */}
+                <img
+                  src={slide.img}
+                  alt={slide.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
 
-          {/* Content */}
-          <div className="card-floating-content" style={{
-            position: 'absolute', bottom: '30px', left: '30px', right: '30px'
-          }}>
-            <Typography variant="overline" sx={{ color: slide.color, fontWeight: 'bold' }}>
-              Premium Quality
-            </Typography>
-            <Typography variant={window.innerWidth < 600 ? "h4" : "h2"} sx={{ color: '#fff', mb: 1 }}>
-              {slide.title}
-            </Typography>
-            <Typography variant="body2" sx={{ color: '#ccc', mb: 3, maxWidth: '500px' }}>
-              {slide.desc}
-            </Typography>
+                {/* Overlay Gradient */}
+                <div className="card-overlay-gradient" style={{
+                  position: 'absolute', bottom: 0, left: 0, right: 0,
+                  height: '100%', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)'
+                }}></div>
 
-            {/* <Stack direction={window.innerWidth < 600 ? "column" : "row"} spacing={2}>
+                {/* Content */}
+                <div className="card-floating-content" style={{
+                  position: 'absolute', bottom: '30px', left: '30px', right: '30px'
+                }}>
+                  <Typography variant="overline" sx={{ color: slide.color, fontWeight: 'bold' }}>
+                    Premium Quality
+                  </Typography>
+                  <Typography variant={window.innerWidth < 600 ? "h4" : "h2"} sx={{ color: '#fff', mb: 1 }}>
+                    {slide.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: '#ccc', mb: 3, maxWidth: '500px' }}>
+                    {slide.desc}
+                  </Typography>
+
+                  {/* <Stack direction={window.innerWidth < 600 ? "column" : "row"} spacing={2}>
               <Button
                 variant="contained"
                 startIcon={<RequestQuoteIcon />}
@@ -994,49 +1024,49 @@ const Home = () => {
                 WhatsApp
               </Button>
             </Stack> */}
-            <Stack direction={window.innerWidth < 600 ? "column" : "row"} spacing={2}>
-  <Button
-    variant="contained"
-    startIcon={<RequestQuoteIcon />}
-    className="card-btn-primary"
-    sx={{ 
-      bgcolor: slide.color, 
-      borderRadius: '50px', 
-      px: 4,
-      '&:hover': { bgcolor: slide.color } 
-    }}
-    onClick={(e) => {
-      e.stopPropagation();
-      handleOpen(slide.title);
-    }}
-  >
-    Get Quote
-  </Button>
+                  <Stack direction={window.innerWidth < 600 ? "column" : "row"} spacing={2}>
+                    <Button
+                      variant="contained"
+                      startIcon={<RequestQuoteIcon />}
+                      className="card-btn-primary"
+                      sx={{
+                        bgcolor: slide.color,
+                        borderRadius: '50px',
+                        px: 4,
+                        '&:hover': { bgcolor: slide.color }
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleOpen(slide.title);
+                      }}
+                    >
+                      Get Quote
+                    </Button>
 
-  <Button
-    variant="outlined"
-    startIcon={<WhatsAppIcon />}
-    className="card-btn-wa"
-    sx={{ 
-      color: '#25D366', 
-      borderColor: '#25D366', 
-      borderRadius: '50px',
-      px: 4
-    }}
-    onClick={(e) => {
-      e.stopPropagation();
-      handleWhatsAppDirect(slide.title);
-    }}
-  >
-    WhatsApp
-  </Button>
-</Stack>
-          </div>
-        </motion.div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</section>
+                    <Button
+                      variant="outlined"
+                      startIcon={<WhatsAppIcon />}
+                      className="card-btn-wa"
+                      sx={{
+                        color: '#25D366',
+                        borderColor: '#25D366',
+                        borderRadius: '50px',
+                        px: 4
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleWhatsAppDirect(slide.title);
+                      }}
+                    >
+                      WhatsApp
+                    </Button>
+                  </Stack>
+                </div>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
 
       {/* --- ABOUT US SECTION --- */}
       <section className="about-section">
@@ -1257,7 +1287,7 @@ const Home = () => {
         </Container>
       </section>
       {/* --- PREMIUM CLIENT REVIEWS SECTION --- */}
-      <section className="reviews-section">
+      {/* <section className="reviews-section">
         <Container maxWidth="lg">
           <Box textAlign="center" mb={8}>
             <Typography variant="overline" className="premium-overline">
@@ -1300,6 +1330,61 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="star-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Container>
+      </section> */}
+      {/* --- PREMIUM CLIENT REVIEWS SECTION --- */}
+      <section className="reviews-section">
+        <Container maxWidth="lg">
+          <Box textAlign="center" mb={8}>
+            <Typography variant="overline" className="premium-overline">
+              Testimonials
+            </Typography>
+            <Typography variant="h2" className="section-title-premium">
+              What Our Clients Say
+            </Typography>
+            <div className="premium-underline"></div>
+          </Box>
+
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={false}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              1024: { slidesPerView: 3 },
+            }}
+            modules={[Autoplay, Pagination]}
+            className="review-swiper"
+          >
+            {userReviews.map((review, index) => (
+              <SwiperSlide key={index}>
+                <div className="premium-review-card">
+                  <div className="quote-icon">“</div>
+                  <Typography variant="body1" className="review-text">
+                    {/* અહીં ચેક કરો જો comment હોય તો એ બતાવો, નહીતર text */}
+                    {review.comment || review.text}
+                  </Typography>
+                  <div className="review-profile">
+                    <img
+                      src={review.img || `https://ui-avatars.com/api/?name=${review.name}&background=ffcc00&color=000`}
+                      alt={review.name}
+                      className="reviewer-img"
+                    />
+                    <div className="reviewer-info">
+                      <Typography variant="h6" className="reviewer-name">{review.name}</Typography>
+                      <Typography variant="caption" className="reviewer-role">
+                        {review.company || review.role || "Client"}
+                      </Typography>
+                    </div>
+                  </div>
+                  <div className="star-rating">
+                    {"⭐".repeat(review.rating || 5)}
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
