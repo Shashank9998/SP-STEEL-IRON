@@ -254,7 +254,7 @@ function App() {
               {/* <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} /> */}
               <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
-              <Route path="/products/:id" element={<ProductCategory />} />
+              <Route path="/products/:id" element={<ProtectedRoute><ProductCategory /></ProtectedRoute>} />
               <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
               <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
 
