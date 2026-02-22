@@ -152,7 +152,7 @@
 
 // export default App;
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 // Layout Components
@@ -166,22 +166,11 @@ import { ProductProvider } from './context/ProductContext';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-// import Products from './pages/Products';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import ProductCategory from './pages/ProductCategory';
-
-// import TMT from "./pages/products/TMT";
-// import BeamsColumns from "./pages/products/BeamsColumns";
-// import Plates from "./pages/products/Plates";
-// import Pipes from "./pages/products/Pipes";
-// import StainlessSteel from "./pages/products/StainlessSteel";
-// import Sheets from "./pages/products/Sheets";
-// import NotFound from './pages/NotFound';
-// import Steelsheets from './pages/products/Steelsheets';
-// import StainlessSteelCoils from './pages/products/Stainlesssteelcoils';
 
 // Styles
 import { ToastContainer } from 'react-toastify';
@@ -234,28 +223,21 @@ const LayoutWrapper = ({ children }) => {
 //       setInitialLoading(false);
 //     }, 1500);
 //   };
-function App() {
+//   if (initialLoading) return <Loader />;
 
-  const [loading, setLoading] = useState(false);
+
+function App() {
+  const [initialLoading, setInitialLoading] = useState(false);
 
   const handleLoginSuccess = () => {
-
-    setLoading(true);
-
+    setInitialLoading(true);
     setTimeout(() => {
-
-      localStorage.setItem("isLoggedIn", "true");
-
-      setLoading(false);
-
-      window.location.href = "/services";
-
-    }, 1000);
-
+      setInitialLoading(false);
+    }, 1500);
   };
 
+  if (initialLoading) return <Loader />;
 
-  if (loading) return <Loader />;
   return (
     <>
       <ProductProvider>
@@ -263,8 +245,8 @@ function App() {
           <LayoutWrapper>
             <Routes>
               {/* Public Routes */}
-              <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-              <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login onLogin={handleLoginSuccess} />} />
               <Route path="/register" element={<Register />} />
 
@@ -272,17 +254,7 @@ function App() {
               {/* <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} /> */}
               <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
-              {/* <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
-              <Route path="/productcategory" element={<ProtectedRoute><ProductCategory /></ProtectedRoute>} /> */}
               <Route path="/products/:id" element={<ProductCategory />} />
-              {/* <Route path="/products/tmt" element={<TMT />} />
-              <Route path="/products/beams-columns" element={<BeamsColumns />} />
-              <Route path="/products/plates" element={<Plates />} />
-              <Route path="/products/pipes" element={<Pipes />} />
-              <Route path="/products/stainless-steel" element={<StainlessSteel />} />
-              <Route path="/products/steelsheets" element={<Steelsheets />} />
-              <Route path="/products/sheets" element={<Sheets />} />
-              <Route path="/products/stainless-steel-coils" element={<StainlessSteelCoils />} /> */}
               <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
               <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
 
