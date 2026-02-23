@@ -1298,3 +1298,54 @@
   color: #ddd;
   margin-bottom: 20px;
 }
+
+
+
+/* ========================= */
+/* MOBILE SLIDER GAP FIX */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .master-slider-section {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 40px 0 20px 0 !important; /* bottom gap reduce */
+  }
+
+  .premium-cards-swiper {
+    padding-bottom: 20px !important; /* earlier 60px */
+  }
+
+  .card-slide {
+    height: auto !important;
+  }
+
+  .hero-card {
+    height: 340px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .swiper {
+    padding-bottom: 10px !important;
+  }
+
+}
+
+
+/* extra small devices */
+@media (max-width: 480px) {
+
+  .master-slider-section {
+    padding-bottom: 10px !important;
+  }
+
+  .premium-cards-swiper {
+    padding-bottom: 10px !important;
+  }
+
+  .hero-card {
+    height: 320px !important;
+  }
+
+}

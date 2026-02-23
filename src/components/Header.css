@@ -150,38 +150,7 @@
 }
 
 /* --- Mobile Drawer Styling --- */
-/* .animated-drawer {
-  padding: 20px;
-  background: #ffffff;
-}
 
-.drawer-top-brand {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #f1f5f9;
-  margin-bottom: 20px;
-}
-
-.drawer-logo {
-  font-weight: 900;
-  font-size: 1.8rem;
-  color: var(--primary-steel);
-}
-
-.drawer-link span {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700 !important;
-  font-size: 1.1rem !important;
-  color: var(--primary-steel);
-  transition: 0.3s;
-}
-
-.drawer-link:hover span {
-  color: var(--accent-iron);
-  padding-left: 8px;
-} */
 /* --- Mobile Header Logo (Main Navbar) --- */
 @media (max-width: 600px) {
   .logo-icon {
