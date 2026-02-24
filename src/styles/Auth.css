@@ -1,4 +1,4 @@
-/* આખા પેજનું બેકગ્રાઉન્ડ અને બ્લર ઇફેક્ટ */
+/* Full page background and blur effect */
 .login-overlay {
   height: 100vh;
   width: 100%;
@@ -15,7 +15,7 @@
   padding: 20px;
 }
 
-/* મેઈન ગ્લાસ કાર્ડ */
+/* Main glass card */
 .login-modal-card {
   width: 950px;
   max-width: 95vw;
@@ -28,19 +28,19 @@
   display: flex;
 }
 
-/* સ્પ્લિટ કન્ટેનર */
+/* Split container */
 .login-split-container {
   display: flex;
   width: 100%;
   height: 100%;
 }
 
-/* ડાબી બાજુની વિઝ્યુઅલ પેનલ */
+/* Left side visual panel */
 .login-visual-panel {
   flex: 1.2;
   position: relative;
   overflow: hidden;
-  display: none; /* મોબાઈલ પર ઈમેજ હાઈડ થશે */
+  display: none; /* Image will be hidden on mobile */
 }
 
 @media (min-width: 850px) {
@@ -65,7 +65,7 @@
   z-index: 2;
 }
 
-/* જમણી બાજુની ફોર્મ પેનલ */
+/* Right side form panel */
 .login-form-panel {
   flex: 1;
   padding: 40px 60px;
@@ -75,7 +75,7 @@
   background: #ffffff;
 }
 
-/* ક્લોઝ બટન (ચોકડી) */
+/* Close button (X button) */
 .modal-close-btn {
   position: absolute;
   top: 20px;
@@ -99,7 +99,7 @@
   transform: rotate(90deg);
 }
 
-/* ફોર્મ ટાઈટલ અને લિંક્સ */
+/* Form title and links */
 .login-title {
   font-size: 2rem;
   margin-bottom: 10px;
@@ -117,7 +117,7 @@
   text-decoration: underline;
 }
 
-/* પ્રીમિયમ બટન સ્ટાઈલ */
+/* Premium button style */
 .join-btn-action {
   background: linear-gradient(45deg, #0d47a1 30%, #1e88e5 90%) !important;
   color: white !important;
@@ -130,7 +130,7 @@
   box-shadow: 0 6px 20px rgba(13, 71, 161, 0.4) !important;
 }
 
-/* ટેક્સ્ટ ફીલ્ડ્સ વચ્ચે ગેપ */
+/* Gap between text fields */
 .login-minimal-form .MuiTextField-root {
   margin-bottom: 15px;
 }

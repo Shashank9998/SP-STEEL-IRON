@@ -135,7 +135,7 @@ const Home = () => {
     { title: "STRUCTURAL BEAMS", desc: "Heavy-duty MS Angles & Beams for industrial mega-projects.", img: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200", color: "#00f2fe" },
     { title: "INDUSTRIAL PIPES", desc: "Precision engineered hollow sections for modern construction.", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200", color: "#ffcc00" },
     { title: "ROOFING SOLUTIONS", desc: "High-quality color coated sheets for weather protection.", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200", color: "#a855f7" },
-    { title: "MS PLATES", desc: "Premium grade hot-rolled plates for heavy engineering.", img: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?q=80&w=1200", color: "#22c55e" }
+    { title: "MS PLATES", desc: "Premium grade hot-rolled plates for heavy engineering.", img: "https://images.pexels.com/photos/669577/pexels-photo-669577.jpeg", color: "#22c55e" }
   ];
 
 

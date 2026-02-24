@@ -44,7 +44,7 @@ const productData = {
   "plates": {
     title: "MS Plates",
     desc: "High-tensile Mild Steel plates for industrial machinery, shipbuilding, and infrastructure with superior weldability.",
-    image: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?q=80&w=1200",
+    image: "https://images.pexels.com/photos/5308536/pexels-photo-5308536.jpeg",
     features: ["High Tensile Strength", "Excellent Surface Finish", "Easy to Cut & Weld", "Impact Resistance", "Flawless Internal Structure"],
     applications: ["Boiler Fabrication", "Shipbuilding", "Yellow Goods (JCB/Cranes)", "Railway Wagons", "Storage Tanks"],
     specs: [{ size: "5mm to 100mm Thickness", grade: "IS 2062 E250 / E350", weight: "7.85 kg/mm per m²" }]

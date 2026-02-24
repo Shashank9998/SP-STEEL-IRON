@@ -43,7 +43,7 @@ const Footer = () => {
           {/* Column 3: Products Portfolio */}
           <Grid item xs={12} sm={6} md={3} className="footer-col">
             <Box className="col-content">
-              <Typography className="f-col-title">Solutions</Typography>
+              <Typography className="f-col-title">Products</Typography>
               <nav className="f-nav-links">
                 <a href="/products/tmt">TMT Reinforcement</a>
                 <a href="/products/beams-columns">Structural Beams & Columns</a>
